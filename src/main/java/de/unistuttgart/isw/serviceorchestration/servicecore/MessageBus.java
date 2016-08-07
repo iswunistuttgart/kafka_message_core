@@ -17,6 +17,7 @@ import java.util.*;
 public class MessageBus {
 	private static final String OUTPUT_ENV_PREFIX = "OUTPUT_";
 	private static final String INPUT_ENV_PREFIX = "INPUT_";
+	private static final String BOOTSTRAP_SERVER_ENV = "bootstrap.servers";
 	private static final String INPUT_TOPIC_SEPARATOR = ",";
 	private static final long POLL_TIMEOUT = 1000;
 
@@ -43,7 +44,7 @@ public class MessageBus {
 
 	private static Properties initKafkaProperties() {
 		Properties props = new Properties();
-		props.put("bootstrap.servers", "kafka:9092");
+		props.put("bootstrap.servers", System.getenv(BOOTSTRAP_SERVER_ENV));
 		props.put("enable.auto.commit", "true");
 		props.put("auto.commit.interval.ms", "1000");
 		props.put("session.timeout.ms", "30000");
