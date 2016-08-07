@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.unistuttgart.isw.serviceorchestration</groupId>
-    <artifactId>servicecore</artifactId>
+    <artifactId>kafka-message-core</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <distributionManagement>
@@ -20,8 +20,13 @@
         <!-- github server corresponds to entry in ~/.m2/settings.xml -->
         <github.global.server>github</github.global.server>
         <github.user>Ox24</github.user>
-        <github.repo>https://github.com/iswunistuttgart/kafka_message_core</github.repo>
     </properties>
+
+    <scm>
+        <connection>scm:git:https://github.com/iswunistuttgart/kafka_message_core.git</connection>
+        <url>https://github.com/iswunistuttgart/kafka_message_core</url>
+    </scm>
+
 
     <build>
         <plugins>
@@ -60,7 +65,6 @@
                     <includes>
                         <include>**/*</include>
                     </includes>
-                    <repositoryName>${github.repo}</repositoryName>
                     <repositoryOwner>${github.user}</repositoryOwner>
                 </configuration>
                 <executions>
