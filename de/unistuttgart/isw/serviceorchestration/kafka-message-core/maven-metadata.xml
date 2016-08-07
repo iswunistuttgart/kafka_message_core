@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>de.unistuttgart.isw.serviceorchestration</groupId>
+  <artifactId>kafka-message-core</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20160807101911</lastUpdated>
+  </versioning>
+</metadata>
