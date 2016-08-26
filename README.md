@@ -22,3 +22,6 @@ Adding dependency:
     </dependency>
 </dependencies>
 ```
+
+## Config
+Set Env variable key: bootstrap.servers val:*yourhostip* to use this libary
