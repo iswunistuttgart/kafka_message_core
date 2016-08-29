@@ -61,12 +61,17 @@ public class MessageBus {
 		return props;
 	}
 
-	public MessageSender createSender(String portName, String xsdUrl) {
-		return new MessageSender(Producer.PRODUCER, getEncoder(xsdUrl), getOutputTopicName(portName));
+	public MessageSender createSender(String portName, String xsdUrl, Boolean useSystemEnv) {
+		if(useSystemEnv)
+			return new MessageSender(Producer.PRODUCER, getEncoder(xsdUrl), getOutputTopicName(portName));
+		return new MessageSender(Producer.PRODUCER, getEncoder(xsdUrl), portName);
 	}
 
-	public MessageReceiver createReceiver(String portName, String xsdUrl, MessageHandler handler) {
-		List<String> topicNames = getInputTopicNames(portName);
+	public MessageReceiver createReceiver(String portName, String xsdUrl, MessageHandler handler, Boolean useSystemEnv) {
+		List<String> topicNames = new ArrayList<>();
+		if(useSystemEnv)
+			topicNames = getInputTopicNames(portName);
+		else topicNames.add(portName);
 		allTopicNames.addAll(topicNames);
 		Consumer.CONSUMER.subscribe(allTopicNames);
 		MessageReceiver receiver = new MessageReceiver(getDecoder(xsdUrl), handler);
